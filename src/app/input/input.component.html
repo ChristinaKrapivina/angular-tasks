@@ -1,0 +1,30 @@
+<div class="input">
+     <h2 class="text-center mb-5">Hello {{ userName }}</h2>
+     
+     <div class="input-group mb-3">
+          <input type="text" class="form-control" 
+          placeholder="Username"
+          [(ngModel)]="userName">
+
+          <div class="input-group-append">
+
+            <button class="btn btn-info" type="button"
+            [disabled]="!userName"
+            (click)="clearInput()">Clear</button>
+
+          </div>
+
+        </div>
+     <hr>
+
+     <button type="button" class="btn btn-primary mb-3 mr-3"
+     (click)="showParagraph()"
+     (click)="addClick()"
+     >Details</button>
+
+     <p *ngIf="show">Lorem ipsum dolor.</p>
+     <p *ngFor="let click of clicks"
+     [ngStyle]="{'background-color':clicks.length > 4 ? 'blue' : 'transparent'}"
+     [ngClass]="{'marked':clicks.length > 4}"
+     >{{ click }}</p>
+</div>
