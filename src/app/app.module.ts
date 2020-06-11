@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { Lecture3Component } from './lecture3/lecture3.component';
+import { ControlComponent } from './lecture3/control/control.component';
+import { OddComponent } from './lecture3/odd/odd.component';
+import { EvenComponent } from './lecture3/even/even.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     TopBarComponent,
-    Lecture3Component
+    Lecture3Component,
+    ControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,
