@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputComponent } from './input/input.component';
+import { Lecture2Component } from './lecture2/lecture2.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { Lecture3Component } from './lecture3/lecture3.component';
 import { ControlComponent } from './lecture3/control/control.component';
@@ -14,7 +14,7 @@ import { EvenComponent } from './lecture3/even/even.component';
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
+    Lecture2Component,
     TopBarComponent,
     Lecture3Component,
     ControlComponent,

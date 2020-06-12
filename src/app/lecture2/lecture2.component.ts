@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  templateUrl: './lecture2.component.html',
+  styleUrls: ['./lecture2.component.scss']
 })
-export class InputComponent implements OnInit {
+export class Lecture2Component implements OnInit {
   userName: string = 'Christina';
   show: boolean = true;
   clicks: number[] = [];
