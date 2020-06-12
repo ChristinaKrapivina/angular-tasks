@@ -6,8 +6,9 @@
           </div>
      </div>
      <hr class="mb-5">
-     <div class="row">
-          <div class="col p-2 mr-3">
+     <div class="row"
+          *ngIf="oddNumbers.length || evenNumbers.length else intro">
+          <div class="col p-2 mx-2">
                <h3 class="mb-5">Odd Numbers</h3>
                <hr class="mb-5">
                <div class="container">
@@ -19,7 +20,7 @@
                     </div>
                </div>
           </div>
-          <div class="col p-2">
+          <div class="col p-2 mx-2">
                <h3 class="mb-5">Even Numbers</h3>
                <hr class="mb-5">
                <div class="container">
@@ -32,4 +33,7 @@
                </div>
           </div>
      </div>
+     <ng-template #intro>
+          <p class="lead">Press 'Start' for the numbers to start appearing.</p>
+     </ng-template>
 </div>
