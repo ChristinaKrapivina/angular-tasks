@@ -1,31 +1,55 @@
-<h2 class="text-center mb-5">Lecture 2</h2>
-<div class="input">
-     <h3 class="text-center mb-5">Hello {{ userName }}</h3>
-     
-     <div class="input-group mb-3">
-          <input type="text" class="form-control" 
-          placeholder="Username"
-          [(ngModel)]="userName">
+<div class="container text-center">
+  <h2 class="display-4 font-weight-normal mb-5">Lecture 2</h2>
+  <hr class="mb-5">
+  
+  <div class="row mb-5 text">
+    <div class="col">
+      <p class="lead">The text on the left totally depends on the input field on the right.</p>
+    </div>
+  </div>
 
-          <div class="input-group-append">
+  <div class="row mb-5">
+    <div class="col">
+      <p>{{ userName }}</p>
+    </div>
 
-            <button class="btn btn-info" type="button"
-            [disabled]="!userName"
-            (click)="clearInput()">Clear</button>
-
-          </div>
-
+    <div class="col">
+      <div class="input-group">
+        <input type="text" class="form-control" 
+               placeholder="Username"
+               [(ngModel)]="userName">
+        <div class="input-group-append">
+          <button class="btn btn-info px-4" type="button"
+                  [disabled]="!userName"
+                  (click)="clearInput()">Clear</button>
         </div>
-     <hr>
+      </div>
+    </div>
 
-     <button type="button" class="btn btn-primary mb-3 mr-3"
-     (click)="showParagraph()"
-     (click)="addClick()"
-     >Details</button>
+  </div>
 
-     <p *ngIf="show">Lorem ipsum dolor.</p>
-     <p *ngFor="let click of clicks"
-     [ngStyle]="{'background-color':clicks.length > 4 ? 'blue' : 'transparent'}"
-     [ngClass]="{'marked':clicks.length > 4}"
-     >{{ click }}</p>
+  <hr class="mb-5">
+
+  <div class="row">
+    <div class="col">
+      <p class="lead mb-5">Clicking 'Details' shows/hides the paragraph(s) below. Each click adds new paragraph.</p>
+
+      <button type="button" class="btn btn-primary px-4 mb-5"
+              (click)="showParagraph()"
+              >Details</button>
+      
+      <div class="px-5" 
+           *ngIf="show">
+
+        <p class="py-2 border border-primary rounded-pill"
+           *ngFor="let click of clicks; let i = index"
+           [ngStyle]="{'background-color':i > 3 ? 'blue' : 'transparent'}"
+           [ngClass]="{'text-white':i > 3}"
+           >{{ click }}) Lorem ipsum dolor.</p>
+
+      </div>
+    
+    </div>
+  </div>
+
 </div>

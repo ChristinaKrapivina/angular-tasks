@@ -7,7 +7,7 @@
      </div>
      <hr class="mb-5">
      <div class="row"
-          *ngIf="oddNumbers.length || evenNumbers.length else intro">
+          *ngIf="oddNumbers.length || evenNumbers.length; else intro">
           <div class="col p-2 mx-2">
                <h3 class="mb-5">Odd Numbers</h3>
                <hr class="mb-5">

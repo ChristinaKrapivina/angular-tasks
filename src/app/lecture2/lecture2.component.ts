@@ -7,20 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Lecture2Component implements OnInit {
   userName: string = 'Christina';
-  show: boolean = true;
+  show: boolean = false;
   clicks: number[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
   clearInput() {
     this.userName = '';
   }
   showParagraph() {
     this.show = !this.show;
-  }
-  addClick() {
     this.clicks.push(this.clicks.length + 1);
   }
 }
