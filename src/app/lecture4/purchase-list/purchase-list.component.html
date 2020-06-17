@@ -6,3 +6,9 @@
      (duplicatePurchase)="onDuplicatePurchase($event)"
      (deletePurchase)="onDeletePurchase($event)">
 </app-purchase>
+
+<div class="alert alert-warning"
+     *ngIf="!purchaseList.length">
+
+     <p class="lead pt-3">You have no purchases yet. Add some on the left.</p>
+</div>

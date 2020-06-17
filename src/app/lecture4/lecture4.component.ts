@@ -13,7 +13,6 @@ export class Lecture4Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.purchaseList.push(new Purchase ('Banana', 2));
   }
 
   onPurchaseAdd(purchase: Purchase): void {
