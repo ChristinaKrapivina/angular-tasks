@@ -1,18 +1,18 @@
-<div class="card text-center border-primary">
+<div class="card bg-light text-center">
      <div class="card-body">
           <div class="row">
                <div class="col">
-                    <h5 class="card-title">{{ purchase.name }}</h5>
+                    <p class="card-text m-0"><b>Product:</b> {{ purchase.name }}</p>
                </div>
                <div class="col">
-                    <p class="card-text">{{ purchase.amount }}</p>
-               </div>
-               <div class="col">
-                    <a class="card-link" href="#"
-                    (click)="onDuplicatePurchase()">Duplicate</a>
-                    <a class="card-link" href="#"
-                    (click)="onDeletePurchase()">Delete</a>
+                    <p class="card-text m-0"><b>Amount:</b> {{ purchase.amount }}</p>
                </div>
           </div>
+     </div>
+     <div class="card-footer">
+          <a class="btn btn-info text-white mx-2"
+             (click)="onDuplicatePurchase()">Duplicate</a>
+          <a class="btn btn-danger text-white mx-2"
+             (click)="onDeletePurchase()">Delete</a>
      </div>
 </div>
