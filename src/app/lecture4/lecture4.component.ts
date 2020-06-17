@@ -17,16 +17,20 @@ export class Lecture4Component implements OnInit {
   }
 
   onPurchaseAdd(purchase: Purchase): void {
-    console.log('onPurchaseAdd Method', purchase);
     this.purchaseList.push(purchase);
   }
 
-  onPurchaseDuplicate() {
-
+  onDuplicatePurchase(purchase: Purchase) {
+    let itemIndex = this.purchaseList.indexOf(purchase);
+    if (itemIndex !== -1) {
+      this.purchaseList.splice(itemIndex, 0, purchase);
+    }
   }
 
-  onPurchaseDelete() {
-
+  onDeletePurchase(purchase: Purchase) {
+    let itemIndex = this.purchaseList.indexOf(purchase);
+    if (itemIndex !== -1) {
+      this.purchaseList.splice(itemIndex, 1);
+    }
   }
-
 }

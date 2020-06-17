@@ -19,10 +19,8 @@ export class PurchaseListComponent implements OnInit {
 
   onDuplicatePurchase(purchase: Purchase): void {
     this.duplicatePurchase.emit(purchase);
-    console.log('Duplicated', purchase);
   }
   onDeletePurchase(purchase: Purchase): void {
     this.deletePurchase.emit(purchase);
-    console.log('Deleted', purchase);
   }
 }

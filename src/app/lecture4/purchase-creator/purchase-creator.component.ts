@@ -25,6 +25,5 @@ export class PurchaseCreatorComponent implements OnInit {
       this.purchaseAmount.nativeElement.value,
     );
     this.createPurchase.emit(purchase);
-    console.log('Purchase created!', purchase);
   }
 }

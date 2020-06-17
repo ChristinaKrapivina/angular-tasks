@@ -10,8 +10,8 @@
           <div class="col p-2 mx-2">
                <app-purchase-list
                     [purchaseList]="purchaseList"
-                    (duplicatePurchase)="onPurchaseDuplicate($event)">
-                    (deletePurchase)="onPurchaseDelete($event)">
+                    (duplicatePurchase)="onDuplicatePurchase($event)"
+                    (deletePurchase)="onDeletePurchase($event)">
                </app-purchase-list>
           </div>
      </div>
