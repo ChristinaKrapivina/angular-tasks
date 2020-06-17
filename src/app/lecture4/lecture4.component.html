@@ -4,10 +4,13 @@
      <div class="row">
           <div class="col p-2 mx-2">
                <app-purchase-creator
-                    (createPurchase)="onPurchaseAdd($event)"></app-purchase-creator>
+                    (createPurchase)="onPurchaseAdd($event)">
+               </app-purchase-creator>
           </div>
           <div class="col p-2 mx-2">
-               
+               <app-purchase-list
+                    [purchaseList]="purchaseList">
+               </app-purchase-list>
           </div>
      </div>
 </div>

@@ -8,7 +8,7 @@ import { Purchase } from './purchase.model';
   styleUrls: ['./lecture4.component.scss']
 })
 export class Lecture4Component implements OnInit {
-  purchases: Purchase[] = [];
+  purchaseList: Purchase[] = [];
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class Lecture4Component implements OnInit {
 
   onPurchaseAdd(purchase: Purchase): void {
     console.log('onPurchaseAdd Method', purchase);
-    this.purchases.push(purchase);
+    this.purchaseList.push(purchase);
   }
 
   onPurchaseDuplicate() {
