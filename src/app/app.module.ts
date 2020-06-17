@@ -11,6 +11,9 @@ import { ControlComponent } from './lecture3/control/control.component';
 import { OddComponent } from './lecture3/odd/odd.component';
 import { EvenComponent } from './lecture3/even/even.component';
 import { Lecture4Component } from './lecture4/lecture4.component';
+import { PurchaseCreatorComponent } from './purchase-creator/purchase-creator.component';
+import { PurchaseListComponent } from './purchase-list/purchase-list.component';
+import { PurchaseItemComponent } from './purchase-item/purchase-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { Lecture4Component } from './lecture4/lecture4.component';
     ControlComponent,
     OddComponent,
     EvenComponent,
-    Lecture4Component
+    Lecture4Component,
+    PurchaseCreatorComponent,
+    PurchaseListComponent,
+    PurchaseItemComponent
   ],
   imports: [
     BrowserModule,
