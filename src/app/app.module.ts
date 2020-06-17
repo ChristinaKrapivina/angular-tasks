@@ -10,6 +10,7 @@ import { Lecture3Component } from './lecture3/lecture3.component';
 import { ControlComponent } from './lecture3/control/control.component';
 import { OddComponent } from './lecture3/odd/odd.component';
 import { EvenComponent } from './lecture3/even/even.component';
+import { Lecture4Component } from './lecture4/lecture4.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EvenComponent } from './lecture3/even/even.component';
     Lecture3Component,
     ControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    Lecture4Component
   ],
   imports: [
     BrowserModule,
