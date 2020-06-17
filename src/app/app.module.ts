@@ -14,7 +14,7 @@ import { Lecture4Component } from './lecture4/lecture4.component';
 import { PurchaseCreatorComponent } from './lecture4/purchase-creator/purchase-creator.component';
 import { PurchaseListComponent } from './lecture4/purchase-list/purchase-list.component';
 import { PurchaseItemComponent } from './lecture4/purchase-item/purchase-item.component';
-import { PurchaseComponent } from './purchase/purchase.component';
+import { PurchaseComponent } from './lecture4/purchase-list/purchase/purchase.component';
 
 @NgModule({
   declarations: [
