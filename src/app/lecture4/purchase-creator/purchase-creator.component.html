@@ -1,11 +1,17 @@
 <h3 class="mb-5">Create Your Purchase</h3>
 
-<form class="text-left border rounded-lg p-4">
+<form class="text-left border rounded-lg p-4"
+      (ngSubmit)="onCreatePurchase()">
      <div class="form-row">
           <div class="form-group col-9">
                <label class="font-weight-bold w-100">Purchase Name
-                    <input type="text" class="form-control"
+                    <input class="form-control" type="text" required
+                           [ngClass]="{'is-invalid': missingValue}"
                            #purchaseName>
+                    <div class="invalid-feedback"
+                         *ngIf="missingValue">
+                         Please provide some product name.
+                    </div>
                </label>
           </div>
           <div class="form-group col-3">
@@ -16,6 +22,5 @@
           </div>
      </div>
      
-     <button class="btn btn-primary px-4"
-             (click)="onCreatePurchase()">Create</button>
+     <button class="btn btn-primary px-4" type="submit">Create</button>
 </form>

@@ -14,16 +14,26 @@ export class PurchaseCreatorComponent implements OnInit {
 
   @Output() createPurchase: EventEmitter<Purchase> = new EventEmitter<Purchase>();
 
+  missingValue: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  checkPresence(element: ElementRef) {
+    this.missingValue = element.nativeElement.validity.valueMissing;
+  }
+
   onCreatePurchase(): void {
-    const purchase = new Purchase(
-      this.purchaseName.nativeElement.value,
-      this.purchaseAmount.nativeElement.value,
-    );
-    this.createPurchase.emit(purchase);
+    this.checkPresence(this.purchaseName);
+    
+    if (!this.missingValue) {
+      const purchase = new Purchase(
+        this.purchaseName.nativeElement.value,
+        this.purchaseAmount.nativeElement.value,
+      );
+      this.createPurchase.emit(purchase);
+    }
   }
 }
