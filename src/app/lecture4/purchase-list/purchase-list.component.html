@@ -1,1 +1,8 @@
-<p>purchase-list works!</p>
+<h3 class="mb-5">Purchase List</h3>
+
+<app-purchase
+     *ngFor="let purchase of purchaseList"
+     [purchase]="purchase"
+     (duplicatePurchase)="onDuplicatePurchase($event)"
+     (deletePurchase)="onDeletePurchase($event)">
+</app-purchase>

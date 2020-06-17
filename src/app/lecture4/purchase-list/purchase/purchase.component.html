@@ -1,1 +1,18 @@
-<p>purchase works!</p>
+<div class="card text-center border-primary">
+     <div class="card-body">
+          <div class="row">
+               <div class="col">
+                    <h5 class="card-title">{{ purchase.name }}</h5>
+               </div>
+               <div class="col">
+                    <p class="card-text">{{ purchase.amount }}</p>
+               </div>
+               <div class="col">
+                    <a class="card-link" href="#"
+                    (click)="onDuplicatePurchase()">Duplicate</a>
+                    <a class="card-link" href="#"
+                    (click)="onDeletePurchase()">Delete</a>
+               </div>
+          </div>
+     </div>
+</div>

@@ -9,7 +9,9 @@
           </div>
           <div class="col p-2 mx-2">
                <app-purchase-list
-                    [purchaseList]="purchaseList">
+                    [purchaseList]="purchaseList"
+                    (duplicatePurchase)="onPurchaseDuplicate($event)">
+                    (deletePurchase)="onPurchaseDelete($event)">
                </app-purchase-list>
           </div>
      </div>
