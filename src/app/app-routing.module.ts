@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'lecture3', component: Lecture3Component },
   { path: 'lecture4', component: Lecture4Component },
   { path: 'lecture5', component: Lecture5Component },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 @NgModule({
