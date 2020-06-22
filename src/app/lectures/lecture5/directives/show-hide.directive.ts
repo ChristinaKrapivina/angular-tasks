@@ -3,7 +3,6 @@ import {
   Input,
   ViewContainerRef,
   TemplateRef,
-  EmbeddedViewRef
 } from '@angular/core';
 
 @Directive({
@@ -13,9 +12,6 @@ export class ShowHideDirective {
   private context: boolean;
   private ifTemplateRef: TemplateRef<any>|null = null;
   private elseTemplateRef: TemplateRef<any>|null = null;
-
-  private ifViewRef: EmbeddedViewRef<any>|null = null;
-  private elseViewRef: EmbeddedViewRef<any>|null = null;
   
   constructor(
     private viewContainer: ViewContainerRef, 
@@ -37,21 +33,15 @@ export class ShowHideDirective {
 
   updateView() {
     if (this.context) {
-      if (!this.ifViewRef) {
         this.viewContainer.clear();
-        this.elseViewRef = null;
         if (this.ifTemplateRef) {
-          this.ifViewRef = this.viewContainer.createEmbeddedView(this.ifTemplateRef);
+          this.viewContainer.createEmbeddedView(this.ifTemplateRef);
         }
-      }
-    } else {
-      if (!this.elseViewRef) {
+      } else {
         this.viewContainer.clear();
-        this.ifViewRef = null;
         if (this.elseTemplateRef) {
-          this.elseViewRef = this.viewContainer.createEmbeddedView(this.elseTemplateRef);
+          this.viewContainer.createEmbeddedView(this.elseTemplateRef);
         }
       }
-    }
   }
 }

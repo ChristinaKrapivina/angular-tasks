@@ -22,7 +22,7 @@
                <button 
                     type="button" 
                     class="mt-4 btn btn-warning text-white"
-                    *appShowHide="inputContent.length; else instruction">
+                    *appShowHide="inputContent.length > 0; else instruction">
                        I'm Showing
                </button>
                <ng-template #instruction>
