@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lecture5.component.scss']
 })
 export class Lecture5Component implements OnInit {
-
+  inputContent: string = '';
+  
   constructor() { }
 
   ngOnInit(): void {

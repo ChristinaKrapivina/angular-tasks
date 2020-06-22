@@ -1,1 +1,44 @@
-<p>lecture5 works!</p>
+<div class="container text-center">
+     <h2 class="display-4 font-weight-normal mb-5">Lecture 5</h2>
+     <hr class="mb-5">
+     <div class="row mb-5">
+          <div class="col p-2">
+               <label for="focusInput" class="mb-4 font-weight-bold">Focus on Input Directive</label>
+               <input 
+                    type="text" 
+                    class="mx-auto form-control border-info w-50" 
+                    id="focusInput"
+                    appFocus>
+          </div>
+     </div>
+     <div class="row mb-5">
+          <div class="col p-2">
+               <label for="hideButton" class="mb-4 font-weight-bold">Show/Hide Button Directive</label>
+               <input 
+                    type="text" 
+                    class="mx-auto form-control border-info w-50" 
+                    id="hideButton"
+                    [(ngModel)]="inputContent">
+               <button 
+                    type="button" 
+                    class="mt-4 btn btn-warning text-white"
+                    *appShowHide="inputContent.length; else instruction">
+                       I'm Showing
+               </button>
+               <ng-template #instruction>
+                    <small class="form-text text-muted">Type something in the input for the button to show up</small>
+               </ng-template>
+          </div>
+     </div>
+     <div class="row mb-5">
+          <div class="col p-2">
+               <label for="hoverChange" class="mb-4 font-weight-bold">Change on Hover Directive</label>
+               <input 
+                    type="text" 
+                    class="mx-auto form-control w-50" 
+                    id="hoverChange"
+                    value="Font Changes here"
+                    appHoverChange>
+          </div>
+     </div>
+</div>

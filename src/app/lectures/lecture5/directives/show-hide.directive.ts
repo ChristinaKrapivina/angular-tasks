@@ -25,12 +25,12 @@ export class ShowHideDirective {
   }
 
   @Input()
-  set appShowButton(condition: boolean) {
+  set appShowHide(condition: boolean) {
     this.context = condition;
     this.updateView();
   }
   @Input()
-  set appShowButtonElse(templateRef:TemplateRef<any>|null) {
+  set appShowHideElse(templateRef:TemplateRef<any>|null) {
     this.elseTemplateRef = templateRef;
     this.updateView();
   }
