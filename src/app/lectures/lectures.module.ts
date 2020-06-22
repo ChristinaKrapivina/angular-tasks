@@ -5,6 +5,7 @@ import { Lecture2Component } from './lecture2/lecture2.component';
 
 import { Lecture3Module } from './lecture3/lecture3.module';
 import { Lecture4Module } from './lecture4/lecture4.module';
+import { Lecture5Module } from './lecture5/lecture5.module';
 
 @NgModule({
      declarations: [
@@ -14,7 +15,8 @@ import { Lecture4Module } from './lecture4/lecture4.module';
           CommonModule,
           FormsModule,
           Lecture3Module,
-          Lecture4Module
+          Lecture4Module,
+          Lecture5Module
      ]
 })
 export class LecturesModule { }
