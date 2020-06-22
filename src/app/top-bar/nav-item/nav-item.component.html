@@ -1,0 +1,11 @@
+<ul class="navbar-nav"
+    *ngIf="navItems">
+    <li class="nav-item"
+        routerLinkActive="active"
+        *ngFor="let item of navItems">
+            <a class="nav-link text-white"
+               routerLink="{{ item.link }}">
+               {{ item.name }}
+            </a>
+    </li>
+</ul>

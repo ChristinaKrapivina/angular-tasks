@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { NavItemComponent } from './top-bar/nav-item/nav-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
+    NavItemComponent,
   ],
   imports: [
     BrowserModule,
