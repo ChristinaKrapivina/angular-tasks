@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Purchase } from '../../models/purchase.model';
+import { PurchaseService } from '../../services';
 
 @Component({
   selector: 'app-purchase-list',
@@ -8,19 +9,12 @@ import { Purchase } from '../../models/purchase.model';
   styleUrls: ['./purchase-list.component.scss']
 })
 export class PurchaseListComponent implements OnInit {
-  @Input() purchaseList: Purchase[];
-  @Output() duplicatePurchase: EventEmitter<Purchase> = new EventEmitter();
-  @Output() deletePurchase: EventEmitter<Purchase> = new EventEmitter();
+  purchaseList: Purchase[] = [];
 
-  constructor() { }
+  constructor( private purchaseService: PurchaseService ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.purchaseList = this.purchaseService.getAll();
   }
 
-  onDuplicatePurchase(purchase: Purchase): void {
-    this.duplicatePurchase.emit(purchase);
-  }
-  onDeletePurchase(purchase: Purchase): void {
-    this.deletePurchase.emit(purchase);
-  }
 }

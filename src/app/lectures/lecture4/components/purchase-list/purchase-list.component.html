@@ -2,13 +2,11 @@
 
 <app-purchase
      *ngFor="let purchase of purchaseList"
-     [purchase]="purchase"
-     (duplicatePurchase)="onDuplicatePurchase($event)"
-     (deletePurchase)="onDeletePurchase($event)">
+     [purchase]="purchase">
 </app-purchase>
 
 <div class="alert alert-warning"
-     *ngIf="!purchaseList.length">
+     *ngIf="purchaseList.length === 0">
 
      <p class="lead pt-3">You have no purchases yet. Add some on the left.</p>
 </div>
