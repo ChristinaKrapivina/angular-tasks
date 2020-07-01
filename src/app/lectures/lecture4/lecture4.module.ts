@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { Lecture4Component } from './lecture4.component';
-import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseItemComponent, PurchaseComponent } from './components';
+import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseComponent } from './components';
 import { PurchaseService, AlertService } from './services';
 
 @NgModule({
@@ -11,8 +11,7 @@ import { PurchaseService, AlertService } from './services';
           Lecture4Component,
           PurchaseCreatorComponent,
           PurchaseListComponent,
-          PurchaseItemComponent,
-          PurchaseComponent
+          PurchaseComponent,
      ],
      imports: [
           CommonModule,
