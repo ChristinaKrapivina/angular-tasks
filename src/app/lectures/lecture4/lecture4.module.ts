@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Lecture4Component } from './lecture4.component';
 import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseItemComponent, PurchaseComponent } from './components';
+import { PurchaseService, AlertService } from './services';
 
 @NgModule({
      declarations: [
@@ -16,6 +17,10 @@ import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseItemComponent,
      imports: [
           CommonModule,
           FormsModule,
+     ],
+     providers: [
+          AlertService,
+          PurchaseService
      ]
 })
 export class Lecture4Module { }
