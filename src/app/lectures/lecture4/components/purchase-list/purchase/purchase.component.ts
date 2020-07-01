@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 import { Purchase } from '../../../models/purchase.model';
+import { PurchaseService } from '../../../services';
 
 @Component({
   selector: 'app-purchase',
@@ -9,19 +10,38 @@ import { Purchase } from '../../../models/purchase.model';
 })
 export class PurchaseComponent implements OnInit {
   @Input() purchase: Purchase;
+  @ViewChild('updatedName') updatedName: ElementRef;
+  @ViewChild('updatedAmount') updatedAmount: ElementRef;
+  editorOpened: boolean = false;
 
-  @Output() duplicatePurchase: EventEmitter<Purchase> = new EventEmitter();
-  @Output() deletePurchase: EventEmitter<Purchase> = new EventEmitter();
-
-  constructor() { }
+  constructor( private purchaseService: PurchaseService ) { }
 
   ngOnInit(): void {
   }
 
-  onDuplicatePurchase(): void {
-    this.duplicatePurchase.emit(this.purchase);
+  openEditor(): void {
+    this.editorOpened = true;
   }
-  onDeletePurchase(): void {
-    this.deletePurchase.emit(this.purchase);
+
+  duplicatePurchase(): void {
+    this.purchaseService.duplicate(this.purchase);
+  }
+
+  deletePurchase(): void {
+    this.purchaseService.delete(this.purchase);
+  }
+
+  saveEdit(): void {
+    this.editorOpened = false;
+    const updatedPurchase = new Purchase(
+      this.updatedName.nativeElement.value,
+      this.updatedAmount.nativeElement.value,
+      this.purchase.id
+    );
+    this.purchaseService.edit(updatedPurchase);
+  }
+
+  cancelEdit(): void {
+    this.editorOpened = false;
   }
 }

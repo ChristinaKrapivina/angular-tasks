@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter} from '@angular/core';
 
 import { Purchase } from '../../models/purchase.model';
+import { PurchaseService } from '../../services';
 
 @Component({
   selector: 'app-purchase-creator',
@@ -12,11 +13,9 @@ export class PurchaseCreatorComponent implements OnInit {
   @ViewChild('purchaseName') purchaseName: ElementRef;
   @ViewChild('purchaseAmount') purchaseAmount: ElementRef;
 
-  @Output() createPurchase: EventEmitter<Purchase> = new EventEmitter<Purchase>();
-
   missingValue: boolean;
 
-  constructor() { }
+  constructor( private purchaseService: PurchaseService ) { }
 
   ngOnInit(): void {
   }
@@ -29,11 +28,9 @@ export class PurchaseCreatorComponent implements OnInit {
     this.checkPresence(this.purchaseName);
     
     if (!this.missingValue) {
-      const purchase = new Purchase(
+      this.purchaseService.add(
         this.purchaseName.nativeElement.value,
-        this.purchaseAmount.nativeElement.value,
-      );
-      this.createPurchase.emit(purchase);
+        this.purchaseAmount.nativeElement.value);
     }
   }
 }

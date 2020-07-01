@@ -2,9 +2,7 @@
 
 <app-purchase
      *ngFor="let purchase of purchaseList"
-     [purchase]="purchase"
-     (duplicatePurchase)="onDuplicatePurchase($event)"
-     (deletePurchase)="onDeletePurchase($event)">
+     [purchase]="purchase">
 </app-purchase>
 
 <div class="alert alert-warning"
