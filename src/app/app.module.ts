@@ -19,9 +19,10 @@ import { IntroComponent } from './intro/intro.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    LecturesModule
+    LecturesModule,
+    //MUST BE LAST
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
