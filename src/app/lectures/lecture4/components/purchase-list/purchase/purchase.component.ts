@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Purchase } from '../../purchase.model';
+import { Purchase } from '../../../models/purchase.model';
 
 @Component({
   selector: 'app-purchase',
