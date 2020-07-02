@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './../../app-routing.module';
 
-import { Lecture4Component } from './lecture4.component';
-import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseComponent } from './components';
+import { Lecture4RoutingModule } from './lecture4-routing.module';
+
 import { PurchaseService, AlertService } from './services';
+import { PurchaseComponent } from './components';
 
 @NgModule({
      declarations: [
-          Lecture4Component,
-          PurchaseCreatorComponent,
-          PurchaseListComponent,
+          Lecture4RoutingModule.components,
           PurchaseComponent,
      ],
      imports: [
           CommonModule,
           FormsModule,
-          AppRoutingModule
+          Lecture4RoutingModule
      ],
      providers: [
           AlertService,
