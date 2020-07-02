@@ -35,6 +35,7 @@ export class PurchaseService {
         this.purchaseList[i].id += 1;
       }
     }
+    this.alertService.purchaseDuplicate(purchase.name);
   }
 
   delete(purchase: Purchase) {
@@ -46,6 +47,10 @@ export class PurchaseService {
       }
     }
     this.alertService.purchaseDelete(purchase.name);
+  }
+
+  getPurchase(id: number) {
+    return this.purchaseList[id];
   }
 
   getAll() {

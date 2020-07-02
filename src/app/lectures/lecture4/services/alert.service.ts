@@ -11,6 +11,11 @@ export class AlertService {
   purchaseAdd(purchase: Purchase) {
     alert(`You have added ${purchase.amount} ${purchase.name}(s)!`);
   }
+
+  purchaseDuplicate(name: string) {
+    alert(`You have duplicated ${name}(s).`)
+  }
+
   purchaseDelete(name: string) {
     alert(`You have deleted ${name}(s).`)
   }
