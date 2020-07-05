@@ -1,26 +1,32 @@
-<h3 class="mb-5">Create Your Purchase</h3>
+<div class="container w-50">
+     <div class="row">
+          <div class="col">
+               <h3 class="mb-5">Create Your Purchase</h3>
 
-<form class="text-left border rounded-lg p-4"
-      (ngSubmit)="onCreatePurchase()">
-     <div class="form-row">
-          <div class="form-group col-9">
-               <label class="font-weight-bold w-100">Purchase Name
-                    <input class="form-control" type="text" required
-                           [ngClass]="{'is-invalid': missingValue}"
-                           #purchaseName>
-                    <div class="invalid-feedback"
-                         *ngIf="missingValue">
-                         Please provide some product name.
+               <form class="text-left border rounded-lg p-4"
+                    (ngSubmit)="onCreatePurchase()">
+                    <div class="form-row">
+                         <div class="form-group col-9">
+                              <label class="font-weight-bold w-100">Purchase Name
+                                   <input class="form-control" type="text" required
+                                        [ngClass]="{'is-invalid': missingValue}"
+                                        #purchaseName>
+                                   <div class="invalid-feedback"
+                                        *ngIf="missingValue">
+                                        Please provide some product name.
+                                   </div>
+                              </label>
+                         </div>
+                         <div class="form-group col-3">
+                              <label class="font-weight-bold w-100">Amount
+                                   <input type="number" class="form-control" min="1" value="1"
+                                        #purchaseAmount>
+                              </label>
+                         </div>
                     </div>
-               </label>
-          </div>
-          <div class="form-group col-3">
-               <label class="font-weight-bold w-100">Amount
-                    <input type="number" class="form-control" min="1" value="1"
-                           #purchaseAmount>
-               </label>
+                    
+                    <button class="btn btn-primary px-4" type="submit">Create</button>
+               </form>
           </div>
      </div>
-     
-     <button class="btn btn-primary px-4" type="submit">Create</button>
-</form>
+</div>
