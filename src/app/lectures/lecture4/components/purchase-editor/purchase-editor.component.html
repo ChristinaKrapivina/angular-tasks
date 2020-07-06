@@ -1,0 +1,36 @@
+<div class="card bg-light text-center mb-3"
+     *ngIf="allowEdit; else message">
+     <div class="card-body">
+          <div class="row">
+               <div class="col">
+                    <p class="card-text m-0">
+                         <b>Product:</b> 
+                         <input class="form-control" type="text" required
+                              value="{{ purchase.name }}" #updatedName>
+                    </p>
+               </div>
+               <div class="col">
+                    <p class="card-text m-0">
+                         <b>Amount:</b> 
+                         <input type="number" class="form-control" min="1" 
+                              value="{{ purchase.amount }}"
+                              #updatedAmount>
+                    </p>
+               </div>
+          </div>
+     </div>
+     <div class="card-footer">
+          <a class="btn btn-primary text-white mx-2"
+          (click)="saveEdit()">Save</a>
+          <a class="btn btn-info text-white mx-2"
+          (click)="cancelEdit()">Cancel</a>
+          <a class="btn btn-danger text-white mx-2"
+          (click)="deletePurchase()">Delete</a>
+     </div>
+</div>
+
+<ng-template #message>
+     <div class="alert alert-warning">
+          <p class="lead pt-3">This product is not editable</p>
+     </div>
+</ng-template>
