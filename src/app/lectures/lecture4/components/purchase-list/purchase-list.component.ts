@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Purchase } from '../../models/purchase.model';
 import { PurchaseService } from '../../services';

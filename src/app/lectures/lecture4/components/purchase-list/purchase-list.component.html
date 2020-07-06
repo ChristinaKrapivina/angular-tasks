@@ -1,12 +1,28 @@
-<h3 class="mb-5">Purchase List</h3>
-
-<app-purchase
-     *ngFor="let purchase of purchaseList"
-     [purchase]="purchase">
-</app-purchase>
-
-<div class="alert alert-warning"
-     *ngIf="!purchaseList.length">
-
-     <p class="lead pt-3">You have no purchases yet. Add some on the left.</p>
+<div class="container"
+     *ngIf="purchaseList.length; else alert">
+     <div class="row">
+          <div class="col">
+               <h3 class="mb-5">Purchase List</h3>
+               <div class="list-group">
+                    <a 
+                         class="list-group-item list-group-item-action"
+                         *ngFor="let purchase of purchaseList; let id= index"
+                         routerLinkActive="active"
+                         routerLink="{{purchase.id}}"
+                         [queryParams]="{ allowEdit: id % 2 ? 1 : 0}">
+                         {{ purchase.name }}
+                    </a>
+               </div>
+          </div>
+          <div class="col">
+               <h3 class="mb-5">Purchase Details</h3>
+               <router-outlet></router-outlet>
+          </div>
+     </div>
 </div>
+
+<ng-template #alert>
+     <div class="alert alert-warning">
+          <p class="lead pt-3">You have no purchases yet. Add some on the left.</p>
+     </div>
+</ng-template>
