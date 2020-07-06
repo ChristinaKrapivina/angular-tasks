@@ -1,8 +1,5 @@
-<h3 class="mb-5">Purchase Details</h3>
-
 <div 
-     class="card bg-light text-center mb-3"
-     *ngIf="!editorOpened; else editor">
+     class="card bg-light text-center mb-3">
      <div class="card-body">
           <div class="row">
                <div class="col">
@@ -18,18 +15,18 @@
                class="btn btn-primary text-white mx-2"
                (click)="openEditor()">
                Edit</a>
-          <a 
+          <!-- <a 
                class="btn btn-info text-white mx-2"
                (click)="duplicatePurchase()">
                Duplicate</a>
           <a 
                class="btn btn-danger text-white mx-2"
                (click)="deletePurchase()">
-               Delete</a>
+               Delete</a> -->
      </div>
 </div>
 
-<ng-template #editor>
+<!-- <ng-template #editor>
      <div class="card bg-light text-center mb-3">
           <div class="card-body">
                <div class="row">
@@ -59,4 +56,4 @@
                   (click)="deletePurchase()">Delete</a>
           </div>
      </div>
-</ng-template>
+</ng-template> -->
