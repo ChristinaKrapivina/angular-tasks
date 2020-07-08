@@ -22,6 +22,7 @@ import { AuthGuard } from './guards';
           AlertService,
           PurchaseService,
           AuthService,
+          AuthGuard
      ]
 })
 export class Lecture4Module { }

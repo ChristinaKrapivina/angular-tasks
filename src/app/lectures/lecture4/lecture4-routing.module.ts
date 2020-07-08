@@ -14,6 +14,7 @@ const routes: Routes = [
       {
         path: 'purchase',
         component: PurchaseListComponent,
+        canActivate: [AuthGuard],
         children:[
           { path: ':purchaseID', component: PurchaseDetailsComponent },
           { path: ':purchaseID/edit', component: PurchaseEditorComponent },
