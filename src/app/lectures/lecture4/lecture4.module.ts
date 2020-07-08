@@ -6,7 +6,7 @@ import { Lecture4RoutingModule } from './lecture4-routing.module';
 
 import { PurchaseService, AlertService, AuthService } from './services';
 import { PurchaseComponent } from './components';
-import { AuthGuard, ConfirmGuard } from './guards';
+import { AuthGuard, ConfirmGuard, PurchaseResolveGuard } from './guards';
 
 @NgModule({
      declarations: [
@@ -23,7 +23,8 @@ import { AuthGuard, ConfirmGuard } from './guards';
           PurchaseService,
           AuthService,
           AuthGuard,
-          ConfirmGuard
+          ConfirmGuard,
+          PurchaseResolveGuard
      ]
 })
 export class Lecture4Module { }
