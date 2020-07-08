@@ -1,0 +1,14 @@
+<p class="lead mb-5">{{ message }}</p>
+
+<button
+     *ngIf="authService.isLoggedIn; else loginBtn"
+     type="button" class="btn btn-danger"
+     (click)="onLogout()">
+     Log Out</button>
+
+<ng-template #loginBtn>
+     <button
+          type="button" class="btn btn-primary"
+          (click)="onLogin()">
+          Log Me In</button>
+</ng-template>

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 
 import { Lecture4Component } from './lecture4.component';
-import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseDetailsComponent, PurchaseDashboardComponent, PurchaseEditorComponent } from './components';
+import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseDetailsComponent, PurchaseDashboardComponent, PurchaseEditorComponent, LoginComponent } from './components';
+import { AuthGuard } from './guards';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
           { path: ':purchaseID/edit', component: PurchaseEditorComponent },
         ]
       },
+      { path: 'login', component: LoginComponent },
       { path: '', component: PurchaseDashboardComponent },
     ]
   }
@@ -33,6 +35,7 @@ export class Lecture4RoutingModule {
     PurchaseCreatorComponent,
     PurchaseListComponent,
     PurchaseDetailsComponent,
-    PurchaseEditorComponent
+    PurchaseEditorComponent,
+    LoginComponent
   ]
 }
