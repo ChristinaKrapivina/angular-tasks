@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { Lecture4Component } from './lecture4.component';
 import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseDetailsComponent, PurchaseDashboardComponent, PurchaseEditorComponent, LoginComponent } from './components';
-import { AuthGuard, CanDeactivateGuard } from './guards';
+import { AuthGuard, ConfirmGuard } from './guards';
 
 const routes: Routes = [
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: ':purchaseID/edit',
             component: PurchaseEditorComponent,
-            canDeactivate: [CanDeactivateGuard]
+            canDeactivate: [ConfirmGuard]
           },
         ]
       },
