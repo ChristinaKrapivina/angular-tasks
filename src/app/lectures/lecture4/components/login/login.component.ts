@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.authService.login();
-    this.router.navigate([this.authService.redirectUrl]);
+    if (this.authService.redirectUrl) {
+      this.router.navigate([this.authService.redirectUrl]);
+    }
     this.setMessage();
   }
 
@@ -30,6 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   private setMessage() {
-    this.message = this.authService.isLoggedIn ? 'We are glad to see you!' : 'You need to login to see your purchase list.'
+    this.message = this.authService.isLoggedIn ? 'Now you can view purchase list' : 'You need to login to see your purchase list.'
   }
 }
