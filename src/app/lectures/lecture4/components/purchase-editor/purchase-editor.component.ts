@@ -23,13 +23,10 @@ export class PurchaseEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => this.getPurchase(+params.purchaseID));
-    this.route.queryParams.subscribe(params => this.allowEdit = !!+params.allowEdit);
-  }
-  
-  getPurchase(purchaseID: number): void {
-    this.originalPurchase = this.purchaseService.getPurchase(purchaseID);
+    this.route.data.subscribe(params => this.originalPurchase = params['purchase']);
     this.purchase = {... this.originalPurchase};
+
+    this.route.queryParams.subscribe(params => this.allowEdit = !!+params.allowEdit);
   }
 
   deletePurchase(): void {
