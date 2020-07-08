@@ -24,6 +24,24 @@
                     routerLink="./purchase">
                     Purchase List</a>
           </li>
+          <li
+               class="nav-item ml-auto rounded-top btn-danger"
+               *ngIf="authService.isLoggedIn; else loginBtn">
+               <a
+                    class="nav-link text-white"
+                    (click)="onLogout()">
+                    Logout</a>
+          </li>
+          
+          <ng-template #loginBtn>
+               <li class="nav-item ml-auto rounded-top btn-info">
+                    <a
+                         class="nav-link text-white"
+                         (click)="onLogin()">
+                         Login</a>
+               </li>
+               
+          </ng-template>
      </ul>
      <router-outlet></router-outlet>
 </div>
