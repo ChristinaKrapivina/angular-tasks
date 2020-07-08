@@ -1,2 +1,3 @@
-export * from '../services/alert.service';
-export * from '../services/purchase.service';
+export * from './alert.service';
+export * from './purchase.service';
+export * from './auth.service'

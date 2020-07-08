@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Lecture4RoutingModule } from './lecture4-routing.module';
 
-import { PurchaseService, AlertService } from './services';
+import { PurchaseService, AlertService, AuthService } from './services';
 import { PurchaseComponent } from './components';
 
 @NgModule({
@@ -19,7 +19,8 @@ import { PurchaseComponent } from './components';
      ],
      providers: [
           AlertService,
-          PurchaseService
+          PurchaseService,
+          AuthService
      ]
 })
 export class Lecture4Module { }
