@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 import { PurchaseService } from '../../services';
 import { Purchase } from '../../models/purchase.model';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-purchase-editor',
@@ -10,8 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./purchase-editor.component.scss']
 })
 export class PurchaseEditorComponent implements OnInit {
-  @ViewChild('updatedName') updatedName: ElementRef;
-  @ViewChild('updatedAmount') updatedAmount: ElementRef;
+  originalPurchase: Purchase;
   purchase: Purchase;
   allowEdit = false;
 
@@ -28,25 +28,43 @@ export class PurchaseEditorComponent implements OnInit {
   }
   
   getPurchase(purchaseID: number): void {
-    this.purchase = this.purchaseService.getPurchase(purchaseID);
+    this.originalPurchase = this.purchaseService.getPurchase(purchaseID);
+    this.purchase = {... this.originalPurchase};
   }
 
   deletePurchase(): void {
-    this.purchaseService.delete(this.purchase);
+    this.purchaseService.delete(this.originalPurchase);
     this.router.navigate(['/lecture4/purchase']);
   }
 
   saveEdit(): void {
-    const updatedPurchase = new Purchase(
-      this.updatedName.nativeElement.value,
-      this.updatedAmount.nativeElement.value,
-      this.purchase.id
-    );
-    this.purchaseService.edit(updatedPurchase);
+    if (this.isUpdated()) {
+      this.purchaseService.edit(this.purchase);
+    }
     this.location.back();
   }
 
   cancelEdit(): void {
     this.location.back();
   }
+
+  canDeactivate():
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+      if (this.isUpdated()) {
+        return confirm('Are you sure you want to lose your edits?');
+      }
+      return true;
+  }
+
+  private isUpdated() {
+    if (this.purchase.name !== this.originalPurchase.name ||
+        this.purchase.amount !== this.originalPurchase.amount) {
+      return true;
+    }
+    return false;
+  }
+
 }

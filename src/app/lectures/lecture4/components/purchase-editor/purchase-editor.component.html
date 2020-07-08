@@ -6,15 +6,14 @@
                     <p class="card-text m-0">
                          <b>Product:</b> 
                          <input class="form-control" type="text" required
-                              value="{{ purchase.name }}" #updatedName>
+                              [(ngModel)]="purchase.name">
                     </p>
                </div>
                <div class="col">
                     <p class="card-text m-0">
                          <b>Amount:</b> 
-                         <input type="number" class="form-control" min="1" 
-                              value="{{ purchase.amount }}"
-                              #updatedAmount>
+                         <input type="number" class="form-control" min="1"
+                              [(ngModel)]="purchase.amount">
                     </p>
                </div>
           </div>

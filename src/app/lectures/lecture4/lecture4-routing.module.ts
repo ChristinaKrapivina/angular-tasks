@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { Lecture4Component } from './lecture4.component';
 import { PurchaseCreatorComponent, PurchaseListComponent, PurchaseDetailsComponent, PurchaseDashboardComponent, PurchaseEditorComponent, LoginComponent } from './components';
-import { AuthGuard } from './guards';
+import { AuthGuard, CanDeactivateGuard } from './guards';
 
 const routes: Routes = [
   {
@@ -16,8 +16,15 @@ const routes: Routes = [
         component: PurchaseListComponent,
         canActivate: [AuthGuard],
         children:[
-          { path: ':purchaseID', component: PurchaseDetailsComponent },
-          { path: ':purchaseID/edit', component: PurchaseEditorComponent },
+          {
+            path: ':purchaseID',
+            component: PurchaseDetailsComponent
+          },
+          {
+            path: ':purchaseID/edit',
+            component: PurchaseEditorComponent,
+            canDeactivate: [CanDeactivateGuard]
+          },
         ]
       },
       { path: 'login', component: LoginComponent },
