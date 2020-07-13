@@ -13,7 +13,7 @@ export class NavItemComponent implements OnInit {
     },
     {
       link: '/lecture3',
-      name: 'Lecture 3'
+      name: 'Lecture 3 & 10'
     },
     {
       link: '/lecture4',
