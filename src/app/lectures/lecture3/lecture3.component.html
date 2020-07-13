@@ -2,20 +2,19 @@
      <h2 class="display-4 font-weight-normal mb-5">Lecture 3 & 10</h2>
      <div class="row mb-5">
           <div class="col">
-               <app-control (onStart)="numberAdded($event)"></app-control>
+               <app-control (onStart)="start()"></app-control>
           </div>
      </div>
      <hr class="mb-5">
-     <div class="row"
-          *ngIf="oddNumbers.length || evenNumbers.length; else intro">
+     <div class="row">
           <div class="col p-2 mx-2">
                <h3 class="mb-5">Odd Numbers</h3>
                <hr class="mb-5">
                <div class="container">
                     <div class="row">
                          <app-odd class="col-2"
-                                   *ngFor="let number of oddNumbers"
-                                   oddNumber="{{number}}">
+                              [count]="count$"
+                              [subject]="parentSubject">
                          </app-odd>
                     </div>
                </div>
@@ -25,9 +24,7 @@
                <hr class="mb-5">
                <div class="container">
                     <div class="row">
-                         <app-even class="col-2"
-                                   *ngFor="let number of evenNumbers"
-                                   evenNumber="{{number}}">
+                         <app-even class="col-2">
                          </app-even>
                     </div>
                </div>
