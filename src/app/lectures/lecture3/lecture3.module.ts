@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { Lecture3Component } from './lecture3.component';
-import { ControlComponent } from './control/control.component';
-import { OddComponent } from './odd/odd.component';
-import { EvenComponent } from './even/even.component';
+import { ControlComponent, OddComponent, EvenComponent } from './components';
+import { SubService } from './services';
 
 @NgModule({
      declarations: [
@@ -17,6 +16,7 @@ import { EvenComponent } from './even/even.component';
      imports: [
           CommonModule,
           FormsModule,
-     ]
+     ],
+     providers: [ SubService ]
 })
 export class Lecture3Module { }

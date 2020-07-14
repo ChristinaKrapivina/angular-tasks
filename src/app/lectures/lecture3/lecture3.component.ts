@@ -1,22 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-lecture3',
   templateUrl: './lecture3.component.html',
   styleUrls: ['./lecture3.component.scss']
 })
-export class Lecture3Component implements OnInit {
-  // evenNumbers:number[] = [];
-  // oddNumbers: number[] = [];
+export class Lecture3Component {
+  started = false;
   count$: Observable<number>;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   start() {
+    this.started = true;
+
     this.count$ = new Observable(observer => {
       let count = 1;
       setInterval(() => {
@@ -27,11 +26,6 @@ export class Lecture3Component implements OnInit {
         count++;
       }, 1000);
     });
-    // if(number % 2 === 0) {
-    //   this.evenNumbers.push(number);
-    // } else {
-    //   this.oddNumbers.push(number);
-    // }
   }
 
 }

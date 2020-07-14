@@ -1,0 +1,24 @@
+<h3 
+     class="mb-5"
+     [ngClass]="{'text-primary': changedColor}"
+     >Even Numbers
+</h3>
+<hr class="mb-5">
+<div class="container">
+     <div class="row mb-5">
+          <div class="col">
+               <button type="button" class="btn btn-primary px-4 mx-2"
+                    (click)="changeColor()"
+                    >Change Odd Header Color
+               </button>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col-2"
+               *ngFor="let evenNumber of evenNumbers">
+               <p class="py-2 border border-primary rounded-pill">
+                    {{ evenNumber }}
+               </p>
+          </div>
+     </div>
+</div>

@@ -1,0 +1,24 @@
+<h3 
+     class="mb-5"
+     [ngClass]="{'text-warning': changedColor}"
+     >Odd Numbers
+</h3>
+<hr class="mb-5">
+<div class="container">
+     <div class="row mb-5">
+          <div class="col">
+               <button type="button" class="btn btn-warning text-white px-4 mx-2"
+               (click)="onClick()"
+               >Interact with Even Column
+               </button>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col-2"
+               *ngFor="let oddNumber of oddNumbers">
+               <p class="py-2 border border-warning rounded-pill">
+                    {{ oddNumber }}
+               </p>
+          </div>
+     </div>
+</div>
