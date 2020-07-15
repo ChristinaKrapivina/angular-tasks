@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-lecture11',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lecture11.component.scss']
 })
 export class Lecture11Component implements OnInit {
+  @ViewChild('ckForm') customForm: NgForm;
+
+  formValues: {[key: string]: string | boolean };
+  pets: string[] = ['cat', 'dog', 'parrot', 'monkey', 'snake'];
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  onSubmit(form: NgForm) {
+    if(form.value.log === true) {
+      console.log(`Saved values: ${JSON.stringify(form.value)}`);
+    }
+    this.formValues = form.value;
+    form.reset();
+  }
 }
