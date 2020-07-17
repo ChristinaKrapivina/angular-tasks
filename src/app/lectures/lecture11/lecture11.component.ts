@@ -17,7 +17,7 @@ export class Lecture11Component implements OnInit {
   ngOnInit(): void { }
 
   onSubmit(form: NgForm) {
-    if(form.value.log === true) {
+    if(form.value.log) {
       console.log(`Saved values: ${JSON.stringify(form.value)}`);
     }
     this.formValues = form.value;
