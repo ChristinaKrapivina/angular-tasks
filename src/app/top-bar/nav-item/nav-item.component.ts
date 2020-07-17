@@ -27,6 +27,10 @@ export class NavItemComponent implements OnInit {
       link: '/lecture11',
       name: 'Lecture 11'
     },
+    {
+      link: '/lecture12',
+      name: 'Lecture 12'
+    },
   ]
 
   constructor() { }
