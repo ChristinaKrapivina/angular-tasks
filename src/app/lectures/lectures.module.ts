@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { Lecture2Component } from './lecture2/lecture2.component';
 import { Lecture11Component } from './lecture11/lecture11.component';
@@ -19,6 +19,7 @@ import { Lecture5Module } from './lecture5/lecture5.module';
      imports: [
           CommonModule,
           FormsModule,
+          ReactiveFormsModule,
           Lecture3Module,
           Lecture4Module,
           Lecture5Module
