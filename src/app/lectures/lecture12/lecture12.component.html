@@ -41,13 +41,18 @@
               formControlName="name">
             <div
               class="invalid-feedback"
-              *ngIf="infoForm.get('name').hasError('required')">
+              *ngIf="infoForm.get('name').errors?.required">
               Please let us know your name
             </div>
             <div
               class="invalid-feedback"
-              *ngIf="infoForm.get('name').hasError('minlength')">
+              *ngIf="infoForm.get('name').errors?.minlength">
               The name must be longer than 3 characters.
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="infoForm.get('name').errors?.forbiddenName">
+              This name is forbidden.
             </div>
           </div>
         </div>
@@ -63,12 +68,12 @@
               formControlName="email">
             <div
               class="invalid-feedback"
-              *ngIf="infoForm.get('email').hasError('required')">
+              *ngIf="infoForm.get('email').errors?.required">
               Please enter email
             </div>
             <div
               class="invalid-feedback"
-              *ngIf="infoForm.get('email').hasError('pattern')">
+              *ngIf="infoForm.get('email').errors?.pattern">
               The email format should be email@example.com
             </div>
           </div>
@@ -98,30 +103,50 @@
               <input
               type="password"
               class="form-control"
-              [ngClass]="{'is-invalid': infoForm.get('passwords').get('passwordConfirm').invalid && infoForm.get('passwords').get('passwordConfirm').touched}"
+              [ngClass]="{'is-invalid': 
+                infoForm.get('passwords').get('passwordConfirm').invalid && 
+                infoForm.get('passwords').get('passwordConfirm').touched ||
+                infoForm.get('passwords').invalid && 
+                infoForm.get('passwords').get('passwordConfirm').touched
+              }"
               id="passConfirm"
               formControlName="passwordConfirm">
               <div
                 class="invalid-feedback"
-                *ngIf="infoForm.get('passwords').get('passwordConfirm').hasError('required')">
+                *ngIf="infoForm.get('passwords').get('passwordConfirm').errors?.required">
                 Don't forget to confirm your password
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="infoForm.get('passwords').errors?.passwordMatch">
+                Passwords must match
               </div>
             </div>
           </div>
         </div>
+
         <div formArrayName="petTypes">
           <div class="form-group row">
             <label for="pet" class="col-sm-4 col-form-label">Your favourite pet*</label>
             <div class="col-sm-8">
               <div *ngFor="let petType of petTypes; let i = index">
                 <select
-                class="custom-select mb-3"
+                class="custom-select mt-1"
+                [ngClass]="{'is-invalid': 
+                  infoForm.get('petTypes').get([i]).invalid &&
+                  infoForm.get('petTypes').get([i]).touched
+                }"
                 id="pet"
                 [formControlName]="i">
                   <option *ngFor="let pet of pets" [value]="pet">
                     {{ pet }}
                   </option>
                 </select>
+                <div
+                  class="invalid-feedback"
+                  *ngIf="infoForm.get('petTypes').get([i]).errors?.required"
+                  >Please select a pet
+              </div>
               </div>
               </div>
           </div>

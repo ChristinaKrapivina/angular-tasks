@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators, FormArray, AbstractControl } from '@angular/forms';
+import { CustomValidators } from './validators/custom.validators';
+import { AsyncValidators } from './validators/async.validators';
 
 @Component({
   selector: 'app-lecture12',
@@ -20,6 +22,9 @@ export class Lecture12Component implements OnInit {
   ngOnInit(): void {
     this.buildForm();
   }
+  // ngDoCheck() {
+  //   console.log(this.infoForm)
+  // }
 
   onSubmit(): void {
     if(this.infoForm.value.log) {
@@ -29,11 +34,18 @@ export class Lecture12Component implements OnInit {
     this.infoForm.reset();
   }
   onAddPet(): void {
-    const control = new FormControl('', Validators.required);
-
+    const control = this.createRequiredControl('');
     (<FormArray>this.infoForm.get('petTypes')).push(control);
   }
   onSetFormValues() {
+    const formArray = this.infoForm.get('petTypes') as FormArray;
+    if (formArray.length > 1) {
+      for(let i = formArray.length - 1; i !== 0; i--) {
+        formArray.removeAt(i);
+       
+      }
+    }
+
     this.infoForm.setValue({
       name: 'Christina',
       email: 'ck@email.com',
@@ -51,17 +63,30 @@ export class Lecture12Component implements OnInit {
 
   private buildForm(): void {
     this.infoForm = new FormGroup({
-      'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'passwords': new FormGroup({
-        'password': new FormControl('', Validators.required),
-        'passwordConfirm': new FormControl('', Validators.required)
-      }),
+      'name': new FormControl('', 
+        [
+          Validators.required,
+          Validators.minLength(3),
+          CustomValidators.nameIsNotTest
+        ],
+        AsyncValidators.checkForbiddenName
+        ),
+      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]),
+      'passwords': new FormGroup(
+        {
+          'password': this.createRequiredControl(''),
+          'passwordConfirm': this.createRequiredControl('')
+        },
+        CustomValidators.passwordMatch('password', 'passwordConfirm')
+      ),
       'petTypes': new FormArray([
-        new FormControl('', Validators.required)
+        this.createRequiredControl('')
       ]),
       'log': new FormControl(false)
     })
+  }
+  private createRequiredControl(controlValue: string): AbstractControl {
+    return new FormControl(controlValue, Validators.required);
   }
 
 }
