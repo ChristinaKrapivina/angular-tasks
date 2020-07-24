@@ -1,0 +1,35 @@
+.service {
+     .nav {
+          position: relative;
+          &::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               right: 0;
+               left: 0;
+               background-color: #999BAC;
+               height: 1px;
+          }
+     }
+     .tab {
+          position: relative;
+          color: #2D2A2A;
+          font-family: Raleway;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+          &--active {
+               font-weight: 600;
+               &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    background-color: #000;
+                    height: 2px;
+               }
+          }
+     }
+}

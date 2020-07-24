@@ -7,10 +7,13 @@ import { AuthGuard, ConfirmGuard, PurchaseResolveGuard } from './guards';
 
 const routes: Routes = [
   {
-    path: 'lecture4',
+    path: 'support',
     component: Lecture4Component,
     children: [
-      { path: 'add', component: PurchaseCreatorComponent },
+      { path: 'types', component: PurchaseCreatorComponent },
+      { path: 'groups', component: PurchaseCreatorComponent },
+      { path: 'online', component: PurchaseCreatorComponent },
+      { path: 'leaflet', component: PurchaseCreatorComponent },
       {
         path: 'purchase',
         component: PurchaseListComponent,

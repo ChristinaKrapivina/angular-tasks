@@ -1,36 +1,37 @@
-<div class="container text-center">
+<div class="service container text-center">
      <h2 class="display-4 font-weight-normal mb-5">Lecture 4 & 6-9</h2>
-     <ul class="nav nav-tabs mb-5">
+     <ul class="nav nav-pills mb-5">
           <li class="nav-item">
                <a 
-                    class="nav-link"
-                    routerLinkActive="active"
+                    class="tab nav-link"
+                    routerLinkActive="tab--active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./">
-                    Home</a>
-          </li>
-          <li class="nav-item">
-               <a 
-                    class="nav-link"
-                    routerLinkActive="active"
-                    routerLink="./add">
-                    Purchase Creator</a>
+                    routerLink="./types">
+                    Види підтримки</a>
           </li>
           <li class="nav-item">
                <a
-                    class="nav-link"
-                    routerLinkActive="active"
+                    class="tab nav-link"
+                    routerLinkActive="tab--active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./purchase">
-                    Purchase List</a>
+                    routerLink="./groups">
+                    Групи підтримки</a>
           </li>
-          <li class="nav-item ml-auto">
+          <li class="nav-item">
                <a
-                    class="nav-link"
-                    routerLinkActive="active"
+                    class="tab nav-link"
+                    routerLinkActive="tab--active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./login">
-                    Login Page</a>
+                    routerLink="./online">
+                    Онлайн програма</a>
+          </li>
+          <li class="nav-item">
+               <a
+                    class="tab nav-link"
+                    routerLinkActive="tab--active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    routerLink="./leaflet">
+                    Брошури</a>
           </li>
      </ul>
      <router-outlet></router-outlet>
