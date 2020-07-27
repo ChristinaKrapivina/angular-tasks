@@ -3,35 +3,34 @@
      <ul class="nav nav-pills mb-5">
           <li class="nav-item">
                <a 
-                    class="tab nav-link"
-                    routerLinkActive="tab--active"
+                    class="nav-link"
+                    routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./types">
-                    Види підтримки</a>
+                    routerLink="./">
+                    Home</a>
+          </li>
+          <li class="nav-item">
+               <a 
+                    class="nav-link"
+                    routerLinkActive="active"
+                    routerLink="./add">
+                    Purchase Creator</a>
           </li>
           <li class="nav-item">
                <a
-                    class="tab nav-link"
-                    routerLinkActive="tab--active"
+                    class="nav-link"
+                    routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./groups">
-                    Групи підтримки</a>
+                    routerLink="./purchase">
+                    Purchase List</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ml-auto">
                <a
-                    class="tab nav-link"
-                    routerLinkActive="tab--active"
+                    class="nav-link"
+                    routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./online">
-                    Онлайн програма</a>
-          </li>
-          <li class="nav-item">
-               <a
-                    class="tab nav-link"
-                    routerLinkActive="tab--active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    routerLink="./leaflet">
-                    Брошури</a>
+                    routerLink="./login">
+                    Login Page</a>
           </li>
      </ul>
      <router-outlet></router-outlet>
