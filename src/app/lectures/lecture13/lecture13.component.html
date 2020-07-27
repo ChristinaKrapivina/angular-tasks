@@ -1,1 +1,110 @@
-<p>lecture13 works!</p>
+<div class="container">
+  <h2 class="display-4 font-weight-normal mb-5 text-center">Lecture 13</h2>
+  <hr class="mb-5">
+  <div class="row mb-5">
+    <div class="col-5">
+      <h3 class="mb-4">Create a new Post</h3>
+      <div class="alert alert-danger text-center"
+          *ngIf="hasError">
+          <p>The post was not created.</p>
+          <p>The error message: {{ errorMessage }}</p>
+          <button class="btn btn-outline-danger"
+            (click)="hasError = !hasError">Okay</button>
+      </div>
+      <form class="border border-info rounded p-4"
+            #postForm="ngForm" (ngSubmit)="onCreatePost(postForm)">
+        <div class="form-group">
+          <label for="title">Title*</label>
+          <input type="text" class="form-control" id="title"
+                [ngClass]="{'is-invalid': title.invalid && title.touched}"
+                required
+                ngModel name="title"
+                #title="ngModel">
+          <div class="invalid-feedback" *ngIf="title.hasError('required')">
+            Fill in this field
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="content">Content*</label>
+          <textarea class="form-control" id="content" rows="5"
+                [ngClass]="{'is-invalid': content.invalid && content.touched}"
+                required
+                ngModel name="content"
+                #content="ngModel"></textarea>
+          <div class="invalid-feedback" *ngIf="content.hasError('required')">
+            Fill in this field
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="image">Image url*</label>
+          <input type="url" class="form-control" id="image"
+                [ngClass]="{'is-invalid': imageUrl.invalid && imageUrl.touched}"
+                required
+                ngModel name="imageUrl"
+                #imageUrl="ngModel">
+          <div class="invalid-feedback" *ngIf="imageUrl.hasError('required')">
+            Fill in this field
+          </div>
+        </div>
+        <button [disabled]="postForm.invalid || isSubmitting" type="submit" class="btn btn-info">Create</button>
+      </form>
+    </div>
+    <div class="col-6 ml-auto">
+      <h3 class="mb-4">Statistics</h3>
+      <button class="btn btn-primary mb-4"
+            (click)="onLogin()"
+            *ngIf="!isLoggedIn">Log in
+      </button>
+      <div class="d-flex justify-content-center mb-5"
+          *ngIf="isLoggingIn">
+        <div class="spinner spinner-border text-info"></div>
+      </div>
+      <table class="table"
+            *ngIf="isLoggedIn">
+        <tbody>
+          <tr>
+            <th scope="row">Number of posts</th>
+            <td>
+              <p class="m-0" *ngIf="!isSubmitting">{{ posts.length }}</p>
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <button class="btn btn-outline-danger"
+              (click)="onDeleteAll()">Delete All Posts</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr class="mb-5">
+  <div class="row">
+    <div class="col">
+      <h3 class="mb-4">Recent Posts</h3>
+      <div class="d-flex justify-content-center mb-5"
+          *ngIf="isSubmitting">
+        <div class="spinner spinner-border text-info"></div>
+      </div>
+      <div class="alert alert-info text-center"
+          *ngIf="posts.length === 0 && !isSubmitting">
+        No posts available
+      </div>
+      <div class="card-deck"
+          *ngIf="posts.length > 0 && !isSubmitting">
+        <div class="card mb-4"
+            *ngFor="let post of posts">
+          <img src="{{ post.imageUrl }}" class="card-img-top" alt="{{ post.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Published on {{ post.date | date }} </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
